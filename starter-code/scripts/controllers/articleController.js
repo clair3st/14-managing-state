@@ -39,6 +39,10 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*this method sets the variable categoryData to a function which takes in the variable
+  articlesInCategory and assigns it to the articles property on the ctx object.
+  Then the next() callback function is envoked. the next() is articleController.index
+  method which envokes the articleView.index method with the parameter of ctx.articles.*/
   articlesController.loadByCategory = function(ctx, next) {
     var categoryData = function(articlesInCategory) {
       ctx.articles = articlesInCategory;
