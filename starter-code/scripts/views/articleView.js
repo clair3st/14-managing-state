@@ -13,6 +13,7 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*This method defines the variable options. It also defines the variable template, which is assigned to the Handlebars.compile method run on the option-template ID. It then defines the variable options, which sets the filter to only those authors whose articles are shown. It then sets up a conditional, where if there are fewer than 2 options in the author filter for each author, it appends the option to the filter. Then it defintes the allCategories method on the Article object, which ensures no duplicate categories in the category filter.*/
   articleView.populateFilters = function() {
     var options,
       template = Handlebars.compile($('#option-template').text());
@@ -38,6 +39,7 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*This method adds the event handler, one, to the filters ID, and on change, the option is selected and the callback function runs, which only runs once becaues of the 'one' event handler. This functions sets the variable resource to the id of what was selected, but with the '-filter' string removed. And then it routes to the location defined by resource, with whitespace removed.*/
   articleView.handleFilters = function() {
     $('#filters').one('change', 'select', function() {
       resource = this.id.replace('-filter', '');
@@ -118,6 +120,7 @@
   };
 
   // COMMENT: What does this method do?  What is it's execution path?
+  /*This method takes one parameter: articles. It shows the section with the ID of article, and hides any siblings of that section. It takes any article elements within the section with the ID of articles, and removes them. Then it goes through each of the articles, and calls the render function on each article (which creates the title anchor), and the appends it to the section with ID of articles. Then it calls the populateFilters and handleFilters methods on the articleView object. Finally, it checks if there is more than one article element in the articles ID section, and if so then it hides all paragraphs within the class article-body except for the first two. */
   articleView.index = function(articles) {
     $('#articles').show().siblings().hide();
 
